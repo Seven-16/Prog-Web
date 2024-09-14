@@ -1,0 +1,32 @@
+@page "/tabla_multiplicar"
+@rendermode InteractiveServer
+
+<PageTitle>Tabla de Multiplicar</PageTitle>
+
+<h1>Tabla de Multiplicar</h1>
+
+<p>Una tabla de multiplicar.... <br />
+por si se te olvida multiplicar y no sabes usar<br />
+la calculadora de la otra pagina 🤣</p>
+
+<div class="mb-3" style="margin-bottom: 20px;">
+    <label class="me-2" style="margin-right: 10px;">Numero:</label>
+    <input type="number" @bind="numero" class = "form-control" style="width: 120px; display: inline-block;" />
+</div>
+
+
+
+@if(numero > 0){
+    <div style="margin-top: 20px;">
+    @for(int i = 0; i<=15; i++){
+        <div>@i x @numero = @(i * numero)</div>
+    }
+    </div>
+}
+
+@code{
+
+    double numero = 0;
+
+
+}
