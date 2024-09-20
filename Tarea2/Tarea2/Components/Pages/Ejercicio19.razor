@@ -1,0 +1,40 @@
+@page "/ejercicio19"
+@rendermode InteractiveServer
+
+<PageTitle>Ejercicio 19</PageTitle>
+
+<h3>Ejercicio 19: Contar Números que Terminan en un Dígito Específico</h3>
+
+<p>Construir una función que reciba como parámetro un vector de 10 posiciones enteras y un dígito, 
+    y que retorne la cantidad de números del vector que terminan en dicho dígito.</p>
+
+<div>
+    <label>Introduce 10 números enteros (separados por comas):</label>
+    <input type="text" @bind="numerosInput" class="form-control" />
+    
+    <label class="mt-2">Introduce el dígito:</label>
+    <input type="number" @bind="digito" class="form-control" />
+
+    <button class="btn btn-primary mt-2" @onclick="ContarTerminadosEnDigito">Contar Números Terminados en el Dígito</button>
+</div>
+
+@if(cantidadTerminadosEnDigito >= 0)
+{
+    <p>La cantidad de números que terminan en @digito es: @cantidadTerminadosEnDigito</p>
+}
+
+@code {
+    string numerosInput = "";
+    int digito = 0;
+    int cantidadTerminadosEnDigito = -1;
+
+    void ContarTerminadosEnDigito()
+    {
+
+        var numeros = numerosInput.Split(',')
+            .Select(n => int.TryParse(n.Trim(), out int result) ? result : 0)
+            .ToArray();
+
+        cantidadTerminadosEnDigito = numeros.Count(n => n % 10 == digito);
+    }
+}

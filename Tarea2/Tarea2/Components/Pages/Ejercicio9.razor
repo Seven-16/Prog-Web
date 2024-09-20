@@ -1,0 +1,51 @@
+@page "/ejercicio9"
+@rendermode InteractiveServer
+
+<PageTitle>Ejercicio 9</PageTitle>
+
+<h1>Ejercicio 9: Verificar si el Entero es el Factorial de Alguno de sus Dígitos</h1>
+<p>Construir una función que reciba como parámetro un entero y retornar 1 si dicho valor es el factorial de alguno de los dígitos del número. Deberá retornar 0 si no es así.</p>
+
+<input type="number" @bind="numero" placeholder="Ingresa un número" />
+<button @onclick="VerificarFactorial">Verificar Factorial</button>
+
+@if (resultado != null)
+{
+    <p>El resultado es: @resultado</p>
+}
+
+@code {
+    private int numero;
+    private int? resultado;
+
+    private void VerificarFactorial()
+    {
+
+        string numeroStr = numero.ToString();
+
+        foreach (char digitoChar in numeroStr)
+        {
+
+            int digito = int.Parse(digitoChar.ToString());
+            
+
+            int factorial = Factorial(digito);
+
+            if (numero == factorial)
+            {
+                resultado = 1;
+                return;
+            }
+        }
+
+        resultado = 0;
+    }
+
+    private int Factorial(int n)
+    {
+        if (n <= 1)
+            return 1;
+
+        return n * Factorial(n - 1);
+    }
+}

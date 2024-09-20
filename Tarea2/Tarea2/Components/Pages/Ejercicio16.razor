@@ -1,0 +1,55 @@
+@page "/ejercicio16"
+@rendermode InteractiveServer
+
+<PageTitle>Ejercicio 16</PageTitle>
+
+<h3>Ejercicio 16: Posición del número con más dígitos</h3>
+
+<p>Construir una función que reciba como parámetro un vector de 10 posiciones enteras y retorne la posición del número entero que tenga mayor cantidad de dígitos.</p>
+
+<div>
+    <label>Introduce 10 números separados por comas:</label>
+    <input @bind="numerosInput" class="form-control" placeholder="Ej: 123,45,6789,10,2,3333,44444,5,6,7" />
+    <button class="btn btn-primary mt-2" @onclick="EncontrarMayorCantidadDigitos">Encontrar Posición</button>
+</div>
+
+@if(posicionMayor >= 0)
+{
+    <p>La posición del número con mayor cantidad de dígitos es: @posicionMayor</p>
+}
+else if(posicionMayor == -1)
+{
+    <p>Debes ingresar exactamente 10 números!!</p>
+}
+
+@code {
+    string numerosInput = "";
+    int posicionMayor = -1;
+
+    void EncontrarMayorCantidadDigitos()
+    {
+
+        var numeros = numerosInput.Split(',').Select(int.Parse).ToArray();
+
+        if (numeros.Length == 10)
+        {
+            int maxDigitos = 0;
+            posicionMayor = -1;
+
+            for (int i = 0; i < numeros.Length; i++)
+            {
+                int cantidadDigitos = numeros[i].ToString().Length;
+
+                if (cantidadDigitos > maxDigitos)
+                {
+                    maxDigitos = cantidadDigitos;
+                    posicionMayor = i; 
+                }
+            }
+        }
+        else
+        {
+            posicionMayor = -1; 
+        }
+    }
+}

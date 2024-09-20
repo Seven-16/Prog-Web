@@ -1,0 +1,28 @@
+@page "/ejercicio7"
+@rendermode InteractiveServer
+
+<PageTitle>Ejercicio 7</PageTitle>
+
+<h1>Ejercicio 7: Encontrar el Mayor de Dos Números</h1>
+<p>Construir una función que reciba como parámetros dos números enteros y retorne el valor del mayor.</p>
+
+<input type="number" @bind="numero1" placeholder="Ingresa el primer número" />
+<input type="number" @bind="numero2" placeholder="Ingresa el segundo número" />
+<button @onclick="EncontrarMayor">Encontrar el Mayor</button>
+
+@if (resultado != null)
+{
+    <p>El mayor número es: @resultado</p>
+}
+
+@code {
+    private int numero1;
+    private int numero2;
+    private int resultado;
+
+    private void EncontrarMayor()
+    {
+        
+        resultado = Math.Max(numero1, numero2);
+    }
+}

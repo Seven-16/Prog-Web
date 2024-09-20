@@ -1,0 +1,83 @@
+@page "/ejercicio21"
+@rendermode InteractiveServer
+
+<PageTitle>Ejercicio 21</PageTitle>
+
+<h1>Ejercicio 21</h1>
+<h2>Construir una función que reciba como parámetro una matriz de 3x4 entera y retorne la cantidad de veces que se repite el mayor número primo de la matriz.</h2>
+
+<div>
+    @for (int i = 0; i < 3; i++)
+    {
+        <div>
+            @for (int j = 0; j < 4; j++)
+            {
+                <input type="number" @bind="matriz[i, j]" placeholder="Elemento @i,@j" />
+            }
+        </div>
+    }
+</div>
+
+<button @onclick="ContarRepeticionesPrimo">Contar Repeticiones del Mayor Primo</button>
+<p>@resultado</p>
+
+@code {
+    int[,] matriz = new int[3, 4];
+    string resultado = "";
+
+    void ContarRepeticionesPrimo()
+    {
+        int maximoPrimo = EncontrarMayorPrimo(matriz);
+        if (maximoPrimo != -1)
+        {
+            int cantidad = ContarRepeticiones(matriz, maximoPrimo);
+            resultado = $"El mayor número primo {maximoPrimo} se repite {cantidad} veces.";
+        }
+        else
+        {
+            resultado = "No hay números primos en la matriz.";
+        }
+    }
+
+    int EncontrarMayorPrimo(int[,] matriz)
+    {
+        int maximoPrimo = -1; // Usamos -1 para indicar que no hay primos
+        for (int i = 0; i < matriz.GetLength(0); i++)
+        {
+            for (int j = 0; j < matriz.GetLength(1); j++)
+            {
+                if (EsPrimo(matriz[i, j]) && matriz[i, j] > maximoPrimo)
+                {
+                    maximoPrimo = matriz[i, j];
+                }
+            }
+        }
+        return maximoPrimo;
+    }
+
+    bool EsPrimo(int numero)
+    {
+        if (numero < 2) return false;
+        for (int i = 2; i <= Math.Sqrt(numero); i++)
+        {
+            if (numero % i == 0) return false;
+        }
+        return true;
+    }
+
+    int ContarRepeticiones(int[,] matriz, int valor)
+    {
+        int contador = 0;
+        for (int i = 0; i < matriz.GetLength(0); i++)
+        {
+            for (int j = 0; j < matriz.GetLength(1); j++)
+            {
+                if (matriz[i, j] == valor)
+                {
+                    contador++;
+                }
+            }
+        }
+        return contador;
+    }
+}

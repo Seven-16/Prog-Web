@@ -1,0 +1,35 @@
+@page "/ejercicio18"
+@rendermode InteractiveServer
+
+<PageTitle>Ejercicio 18</PageTitle>
+
+<h3>Ejercicio 18: Contar Números Terminados en 3</h3>
+
+<p>Construir una función que reciba como parámetro un 
+vector de 10 posiciones enteras y retorne la cantidad de números terminados en 3 
+que contiene el vector.</p>
+
+<div>
+    <label>Introduce 10 números enteros (separados por comas):</label>
+    <input type="text" @bind="numerosInput" class="form-control" />
+    <button class="btn btn-primary mt-2" @onclick="ContarTerminadosEnTres">Contar Números Terminados en 3</button>
+</div>
+
+@if(cantidadTerminadosEnTres >= 0)
+{
+    <p>La cantidad de números terminados en 3 es: @cantidadTerminadosEnTres</p>
+}
+
+@code {
+    string numerosInput = "";
+    int cantidadTerminadosEnTres = -1;
+
+    void ContarTerminadosEnTres()
+    {
+        var numeros = numerosInput.Split(',')
+        .Select(n => int.TryParse(n.Trim(), out int result) ? result : 0)
+        .ToArray();
+
+        cantidadTerminadosEnTres = numeros.Count(n => n % 10 == 3);
+    }
+}

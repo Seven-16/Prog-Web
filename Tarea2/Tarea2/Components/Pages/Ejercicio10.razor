@@ -1,0 +1,41 @@
+@page "/ejercicio10"
+@rendermode InteractiveServer
+
+<PageTitle>Ejercicio 10</PageTitle>
+
+<h1>Ejercicio 10: Verificar si Todos los Dígitos de un Entero Son Iguales</h1>
+<p>Construir una función que reciba como parámetro un entero y retorne 1 si en dicho valor todos los dígitos son iguales. Deberá retornar 0 si no es así.</p>
+
+<input type="number" @bind="numero" placeholder="Ingresa un número" />
+<button @onclick="VerificarDigitosIguales">Verificar Dígitos</button>
+
+@if (resultado != null)
+{
+    <p>El resultado es: @resultado</p>
+}
+
+@code {
+    private int numero;
+    private int? resultado;
+
+    private void VerificarDigitosIguales()
+    {
+
+        string numeroStr = numero.ToString();
+
+
+        char primerDigito = numeroStr[0];
+
+
+        foreach (char digito in numeroStr)
+        {
+            if (digito != primerDigito)
+            {
+                resultado = 0; 
+                return;
+            }
+        }
+
+        resultado = 1;
+    }
+}

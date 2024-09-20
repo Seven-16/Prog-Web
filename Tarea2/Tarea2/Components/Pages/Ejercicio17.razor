@@ -1,0 +1,48 @@
+@page "/ejercicio17"
+@rendermode InteractiveServer
+
+<PageTitle>Ejercicio 17</PageTitle>
+
+<h3>Ejercicio 17: Elemento de la serie de Fibonacci</h3>
+
+<p>Construir una función que reciba como parámetro un entero y retorne ese elemento de la serie de Fibonacci.</p>
+
+<div>
+    <label>Introduce un número entero (n):</label>
+    <input type="number" @bind="numero" class="form-control" />
+    <button class="btn btn-primary mt-2" @onclick="CalcularFibonacci">Calcular Fibonacci</button>
+</div>
+
+@if(fibonacciResult >= 0)
+{
+    <p>El elemento de Fibonacci en la posición @numero es: @fibonacciResult</p>
+}
+else
+{
+    <p>Por favor, introduce un número entero no negativo.</p>
+}
+
+@code {
+    // Variables
+    int numero = 0;
+    int fibonacciResult = -1;
+
+    void CalcularFibonacci()
+    {
+        if (numero >= 0)
+        {
+            fibonacciResult = Fibonacci(numero);
+        }
+        else
+        {
+            fibonacciResult = -1; 
+        }
+    }
+
+    int Fibonacci(int n)
+    {
+        if (n == 0) return 0;
+        if (n == 1) return 1;
+        return Fibonacci(n - 1) + Fibonacci(n - 2);
+    }
+}

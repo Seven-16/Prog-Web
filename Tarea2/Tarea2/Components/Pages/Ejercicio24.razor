@@ -1,0 +1,94 @@
+@page "/ejercicio24"
+@rendermode InteractiveServer
+
+<PageTitle>Ejercicio 24</PageTitle>
+
+<h1>Ejercicio 24</h1>
+<h2>Construir una función que reciba una matriz 5x5 y retorne la cantidad de veces que se repite su moda.</h2>
+
+<div>
+    @for (int i = 0; i < 5; i++)
+    {
+        <div>
+            @for (int j = 0; j < 5; j++)
+            {
+                <input type="number" @bind="matriz[i, j]" placeholder="Elemento @i,@j" />
+            }
+        </div>
+    }
+</div>
+
+<button @onclick="CalcularModa">Calcular Moda</button>
+<p>@resultado</p>
+
+@code {
+    int[,] matriz = new int[5, 5];
+    string resultado = "";
+
+    void CalcularModa()
+    {
+        int moda = CalcularModaEnMatriz(matriz);
+        int cantidad = ContarOcurrencias(matriz, moda);
+        if (cantidad > 0)
+        {
+            resultado = $"La moda es {moda} y se repite {cantidad} veces.";
+        }
+        else
+        {
+            resultado = "No se encontró moda en la matriz.";
+        }
+    }
+
+    int CalcularModaEnMatriz(int[,] matriz)
+    {
+        Dictionary<int, int> conteo = new Dictionary<int, int>();
+
+        for (int i = 0; i < matriz.GetLength(0); i++)
+        {
+            for (int j = 0; j < matriz.GetLength(1); j++)
+            {
+                int numero = matriz[i, j];
+                if (conteo.ContainsKey(numero))
+                {
+                    conteo[numero]++;
+                }
+                else
+                {
+                    conteo[numero] = 1;
+                }
+            }
+        }
+
+        int moda = matriz[0, 0];
+        int maxOcurrencias = 0;
+
+        foreach (var par in conteo)
+        {
+            if (par.Value > maxOcurrencias)
+            {
+                maxOcurrencias = par.Value;
+                moda = par.Key;
+            }
+        }
+
+        return moda;
+    }
+
+    int ContarOcurrencias(int[,] matriz, int numero)
+    {
+        int contador = 0;
+
+        for (int i = 0; i < matriz.GetLength(0); i++)
+        {
+            for (int j = 0; j < matriz.GetLength(1); j++)
+            {
+                if (matriz[i, j] == numero)
+                {
+                    contador++;
+                }
+            }
+        }
+
+        return contador;
+    }
+}

@@ -1,0 +1,26 @@
+@page "/ejercicio5"
+@rendermode InteractiveServer
+
+<PageTitle>Ejercicio 5</PageTitle>
+
+<h1>Ejercicio 5: Obtener el Primer Dígito</h1>
+<p>Construir una función que reciba como parámetro un entero y retorne el primer dígito de este entero.</p>
+
+<input type="number" @bind="numero" placeholder="Ingresa un número entero" />
+<button @onclick="ObtenerPrimerDigito">Obtener Primer Dígito</button>
+
+@if (primerDigito != null)
+{
+    <p>El primer dígito es: @primerDigito</p>
+}
+
+@code {
+    private int numero;
+    private string primerDigito;
+
+    private void ObtenerPrimerDigito()
+    {
+      
+        primerDigito = Math.Abs(numero).ToString()[0].ToString();
+    }
+}

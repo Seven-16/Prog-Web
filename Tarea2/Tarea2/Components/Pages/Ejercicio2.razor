@@ -1,0 +1,25 @@
+@page "/ejercicio2"
+@rendermode InteractiveServer
+
+<PageTitle>Ejercicio 2</PageTitle>
+
+<h1>Ejercicio 2: Contar Dígitos Pares</h1>
+<p>Construir una función que reciba como parámetro un entero y retorne la cantidad de dígitos pares.</p>
+
+<input type="number" @bind="numero" placeholder="Ingresa un número entero" />
+<button @onclick="ContarDigitosPares">Contar Dígitos Pares</button>
+
+@if (cantidadPares != null)
+{
+    <p>La cantidad de dígitos pares es: @cantidadPares</p>
+}
+
+@code {
+    private int numero;
+    private int cantidadPares;
+
+    private void ContarDigitosPares()
+    {
+        cantidadPares = numero.ToString().Count(d => (d - '0') % 2 == 0);
+    }
+}

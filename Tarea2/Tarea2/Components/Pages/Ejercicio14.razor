@@ -1,0 +1,74 @@
+@page "/ejercicio14"
+@rendermode InteractiveServer
+
+<PageTitle>Ejercicio 14</PageTitle>
+
+<h3>Ejercicio 14: Encontrar la posición del mayor número primo</h3>
+
+<p>Construir una función que reciba como parámetro un vector de 10 posiciones enteras y retorne la posición del mayor número primo almacenado en el vector.</p>
+
+<div>
+    <label>Introduce 10 números separados por comas:</label>
+    <input @bind="numerosInput" class="form-control" placeholder="Ej: 2,3,5,7,11,13,17,19,23,29" />
+    <button class="btn btn-primary mt-2" @onclick="EncontrarMayorPrimo">Encontrar Mayor Primo</button>
+</div>
+
+@if(posicionMayorPrimo >= 0)
+{
+    <p>La posición del mayor número primo en el vector es: @posicionMayorPrimo</p>
+}
+else if(posicionMayorPrimo == -2)
+{
+    <p>No se encontraron números primos en el vector.</p>
+}
+else if(posicionMayorPrimo == -1)
+{
+    <p>Debes ingresar exactamente 10 números.</p>
+}
+
+@code {
+
+    string numerosInput = "";
+    int posicionMayorPrimo = -1;
+
+    void EncontrarMayorPrimo()
+    {
+
+        var numeros = numerosInput.Split(',').Select(int.Parse).ToArray();
+
+        if (numeros.Length == 10)
+        {
+            int mayorPrimo = -1;
+            posicionMayorPrimo = -2; 
+
+            for (int i = 0; i < numeros.Length; i++)
+            {
+                if (EsPrimo(numeros[i]))
+                {
+                    if (numeros[i] > mayorPrimo)
+                    {
+                        mayorPrimo = numeros[i];
+                        posicionMayorPrimo = i; 
+                    }
+                }
+            }
+        }
+        else
+        {
+            posicionMayorPrimo = -1; 
+        }
+    }
+
+    bool EsPrimo(int numero)
+    {
+        if (numero < 2)
+            return false;
+
+        for (int i = 2; i <= Math.Sqrt(numero); i++)
+        {
+            if (numero % i == 0)
+                return false;
+        }
+        return true;
+    }
+}

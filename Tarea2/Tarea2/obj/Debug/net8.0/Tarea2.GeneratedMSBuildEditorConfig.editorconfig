@@ -22,20 +22,112 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Programación Web/Tarea2/Tarea2/Components/Pages/Counter.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb3VudGVyLnJhem9y
+[C:/Programación Web/Tarea2/Tarea2/Components/Pages/AcercaDe.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBY2VyY2FEZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Programación Web/Tarea2/Tarea2/Components/Pages/Ejercicio1.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFamVyY2ljaW8xLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Programación Web/Tarea2/Tarea2/Components/Pages/Ejercicio10.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFamVyY2ljaW8xMC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Programación Web/Tarea2/Tarea2/Components/Pages/Ejercicio11.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFamVyY2ljaW8xMS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Programación Web/Tarea2/Tarea2/Components/Pages/Ejercicio12.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFamVyY2ljaW8xMi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Programación Web/Tarea2/Tarea2/Components/Pages/Ejercicio13.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFamVyY2ljaW8xMy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Programación Web/Tarea2/Tarea2/Components/Pages/Ejercicio14.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFamVyY2ljaW8xNC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Programación Web/Tarea2/Tarea2/Components/Pages/Ejercicio15.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFamVyY2ljaW8xNS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Programación Web/Tarea2/Tarea2/Components/Pages/Ejercicio16.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFamVyY2ljaW8xNi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Programación Web/Tarea2/Tarea2/Components/Pages/Ejercicio17.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFamVyY2ljaW8xNy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Programación Web/Tarea2/Tarea2/Components/Pages/Ejercicio18.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFamVyY2ljaW8xOC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Programación Web/Tarea2/Tarea2/Components/Pages/Ejercicio19.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFamVyY2ljaW8xOS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Programación Web/Tarea2/Tarea2/Components/Pages/Ejercicio2.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFamVyY2ljaW8yLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Programación Web/Tarea2/Tarea2/Components/Pages/Ejercicio20.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFamVyY2ljaW8yMC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Programación Web/Tarea2/Tarea2/Components/Pages/Ejercicio21.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFamVyY2ljaW8yMS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Programación Web/Tarea2/Tarea2/Components/Pages/Ejercicio22.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFamVyY2ljaW8yMi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Programación Web/Tarea2/Tarea2/Components/Pages/Ejercicio23.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFamVyY2ljaW8yMy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Programación Web/Tarea2/Tarea2/Components/Pages/Ejercicio24.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFamVyY2ljaW8yNC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Programación Web/Tarea2/Tarea2/Components/Pages/Ejercicio3.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFamVyY2ljaW8zLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Programación Web/Tarea2/Tarea2/Components/Pages/Ejercicio4.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFamVyY2ljaW80LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Programación Web/Tarea2/Tarea2/Components/Pages/Ejercicio5.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFamVyY2ljaW81LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Programación Web/Tarea2/Tarea2/Components/Pages/Ejercicio6.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFamVyY2ljaW82LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Programación Web/Tarea2/Tarea2/Components/Pages/Ejercicio7.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFamVyY2ljaW83LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Programación Web/Tarea2/Tarea2/Components/Pages/Ejercicio8.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFamVyY2ljaW84LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Programación Web/Tarea2/Tarea2/Components/Pages/Ejercicio9.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFamVyY2ljaW85LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Programación Web/Tarea2/Tarea2/Components/Pages/Error.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Programación Web/Tarea2/Tarea2/Components/Pages/Home.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Programación Web/Tarea2/Tarea2/Components/Pages/Weather.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xXZWF0aGVyLnJhem9y
+[C:/Programación Web/Tarea2/Tarea2/Components/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xJbmRleC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Programación Web/Tarea2/Tarea2/Components/Routes.razor]

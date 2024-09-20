@@ -1,0 +1,71 @@
+@page "/ejercicio23"
+@rendermode InteractiveServer
+
+<PageTitle>Ejercicio 23</PageTitle>
+
+<h1>Ejercicio 23</h1>
+<h2>Construir una función que reciba como parámetro una matriz 4x4 entera y retorne la posición exacta en donde se encuentre almacenado el mayor número primo.</h2>
+
+<div>
+    @for (int i = 0; i < 4; i++)
+    {
+        <div>
+            @for (int j = 0; j < 4; j++)
+            {
+                <input type="number" @bind="matriz[i, j]" placeholder="Elemento @i,@j" />
+            }
+        </div>
+    }
+</div>
+
+<button @onclick="EncontrarMayorPrimo">Encontrar Mayor Primo</button>
+<p>@resultado</p>
+
+@code {
+    int[,] matriz = new int[4, 4];
+    string resultado = "";
+
+    void EncontrarMayorPrimo()
+    {
+        (int fila, int columna) = EncontrarMayorPrimoEnMatriz(matriz);
+        if (fila != -1 && columna != -1)
+        {
+            resultado = $"El mayor número primo se encuentra en la posición ({fila + 1}, {columna + 1}).";
+        }
+        else
+        {
+            resultado = "No se encontraron números primos en la matriz.";
+        }
+    }
+
+    (int, int) EncontrarMayorPrimoEnMatriz(int[,] matriz)
+    {
+        int maximoPrimo = -1;
+        int fila = -1;
+        int columna = -1;
+
+        for (int i = 0; i < matriz.GetLength(0); i++)
+        {
+            for (int j = 0; j < matriz.GetLength(1); j++)
+            {
+                if (EsPrimo(matriz[i, j]) && matriz[i, j] > maximoPrimo)
+                {
+                    maximoPrimo = matriz[i, j];
+                    fila = i;
+                    columna = j;
+                }
+            }
+        }
+        return (fila, columna);
+    }
+
+    bool EsPrimo(int numero)
+    {
+        if (numero < 2) return false;
+        for (int i = 2; i <= Math.Sqrt(numero); i++)
+        {
+            if (numero % i == 0) return false;
+        }
+        return true;
+    }
+}

@@ -1,0 +1,32 @@
+@page "/ejercicio3"
+@rendermode InteractiveServer
+
+<PageTitle>Ejercicio 3</PageTitle>
+
+<h1>Ejercicio 3: Convertir Entero a Carácter ASCII</h1>
+<p>Construir una función que reciba como parámetro un entero y retorne el carácter al cual pertenece ese entero como código ASCII.</p>
+
+<input type="number" @bind="numero" placeholder="Ingresa un número entero" />
+<button @onclick="ConvertirACaracterASCII">Convertir a Carácter ASCII</button>
+
+@if (!string.IsNullOrEmpty(caracterASCII))
+{
+    <p>El carácter ASCII correspondiente es: @caracterASCII</p>
+}
+
+@code {
+    private int numero;
+    private string caracterASCII;
+
+    private void ConvertirACaracterASCII()
+    {
+        if (numero >= 0 && numero <= 127) 
+        {
+            caracterASCII = ((char)numero).ToString();
+        }
+        else
+        {
+            caracterASCII = "Número fuera del rango ASCII (0-127).";
+        }
+    }
+}

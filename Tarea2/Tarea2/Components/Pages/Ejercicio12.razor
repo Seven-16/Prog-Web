@@ -1,0 +1,42 @@
+@page "/ejercicio12"
+@rendermode InteractiveServer
+
+<PageTitle>Ejercicio 12</PageTitle>
+
+<h1>Ejercicio 12: Verificar si dos números de dos dígitos son inversos</h1>
+<p>Construir una función que reciba como parámetro dos enteros de dos dígitos cada uno y retorne 1 si son inversos. Ejemplo: 83 es inverso de 38. Deberá retornar 0 si no es así.</p>
+
+<input type="number" @bind="numero1" placeholder="Ingresa el primer número" min="10" max="99" />
+<input type="number" @bind="numero2" placeholder="Ingresa el segundo número" min="10" max="99" />
+<button @onclick="VerificarInversos">Verificar Inversos</button>
+
+@if (resultado != null)
+{
+    <p>El resultado es: @resultado</p>
+}
+
+@code {
+    private int numero1;
+    private int numero2;
+    private int? resultado;
+
+    private void VerificarInversos()
+    {
+        
+        int decenasNumero1 = numero1 / 10;
+        int unidadesNumero1 = numero1 % 10;
+
+        int decenasNumero2 = numero2 / 10;
+        int unidadesNumero2 = numero2 % 10;
+
+        
+        if (decenasNumero1 == unidadesNumero2 && unidadesNumero1 == decenasNumero2)
+        {
+            resultado = 1; 
+        }
+        else
+        {
+            resultado = 0; 
+        }
+    }
+}

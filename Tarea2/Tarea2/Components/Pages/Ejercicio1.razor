@@ -1,0 +1,25 @@
+﻿@page "/ejercicio1"
+@rendermode InteractiveServer
+
+<PageTitle>Ejercicio 1</PageTitle>
+
+<h1>Ejercicio 1: Obtener los Últimos Dígitos</h1>
+<p>Construir una función que reciba como parámetro un entero y retorne sus dos últimos dígitos.</p>
+
+<input type="number" @bind="numero" placeholder="Ingresa un número entero" />
+<button @onclick="MostrarUltimosDigitos">Obtener Últimos Dígitos</button>
+
+@if (resultado != null)
+{
+    <p>Los dos últimos dígitos son: @resultado</p>
+}
+
+@code {
+    private int numero;
+    private string resultado;
+
+    private void MostrarUltimosDigitos()
+    {
+        resultado = (numero % 100).ToString("D2"); 
+    }
+}

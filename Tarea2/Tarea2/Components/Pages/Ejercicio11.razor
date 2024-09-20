@@ -1,0 +1,33 @@
+@page "/ejercicio11"
+@rendermode InteractiveServer
+
+<PageTitle>Ejercicio 11</PageTitle>
+
+<h1>Ejercicio 11: Verificar si un Entero es Múltiplo de 5</h1>
+<p>Construir una función que reciba como parámetro un entero y retorne 1 si dicho valor es múltiplo de 5. Deberá retornar 0 si no es así.</p>
+
+<input type="number" @bind="numero" placeholder="Ingresa un número" />
+<button @onclick="VerificarMultiploDeCinco">Verificar Múltiplo</button>
+
+@if (resultado != null)
+{
+    <p>El resultado es: @resultado</p>
+}
+
+@code {
+    private int numero;
+    private int? resultado;
+
+    private void VerificarMultiploDeCinco()
+    {
+        
+        if (numero % 5 == 0)
+        {
+            resultado = 1;
+        }
+        else
+        {
+            resultado = 0;
+        }
+    }
+}

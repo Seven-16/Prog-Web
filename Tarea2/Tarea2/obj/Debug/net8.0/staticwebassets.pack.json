@@ -5,10 +5,6 @@
       "PackagePath": "staticwebassets\\Tarea2.bundle.scp.css"
     },
     {
-      "Id": "C:\\Programación Web\\Tarea2\\Tarea2\\wwwroot\\app.css",
-      "PackagePath": "staticwebassets\\app.css"
-    },
-    {
       "Id": "C:\\Programación Web\\Tarea2\\Tarea2\\wwwroot\\bootstrap\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
     },
@@ -17,8 +13,40 @@
       "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
     },
     {
+      "Id": "C:\\Programación Web\\Tarea2\\Tarea2\\wwwroot\\css\\Index.style.css",
+      "PackagePath": "staticwebassets\\css\\Index.style.css"
+    },
+    {
+      "Id": "C:\\Programación Web\\Tarea2\\Tarea2\\wwwroot\\css\\app.css",
+      "PackagePath": "staticwebassets\\css\\app.css"
+    },
+    {
       "Id": "C:\\Programación Web\\Tarea2\\Tarea2\\wwwroot\\favicon.png",
       "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "C:\\Programación Web\\Tarea2\\Tarea2\\wwwroot\\images\\icono1.png",
+      "PackagePath": "staticwebassets\\images\\icono1.png"
+    },
+    {
+      "Id": "C:\\Programación Web\\Tarea2\\Tarea2\\wwwroot\\images\\icono2.png",
+      "PackagePath": "staticwebassets\\images\\icono2.png"
+    },
+    {
+      "Id": "C:\\Programación Web\\Tarea2\\Tarea2\\wwwroot\\images\\icono3.png",
+      "PackagePath": "staticwebassets\\images\\icono3.png"
+    },
+    {
+      "Id": "C:\\Programación Web\\Tarea2\\Tarea2\\wwwroot\\images\\icono4.png",
+      "PackagePath": "staticwebassets\\images\\icono4.png"
+    },
+    {
+      "Id": "C:\\Programación Web\\Tarea2\\Tarea2\\wwwroot\\images\\icono5.png",
+      "PackagePath": "staticwebassets\\images\\icono5.png"
+    },
+    {
+      "Id": "C:\\Programación Web\\Tarea2\\Tarea2\\wwwroot\\images\\yo.png",
+      "PackagePath": "staticwebassets\\images\\yo.png"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Tarea2.Microsoft.AspNetCore.StaticWebAssets.props",

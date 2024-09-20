@@ -1,0 +1,33 @@
+@page "/ejercicio8"
+@rendermode InteractiveServer
+
+<PageTitle>Ejercicio 8</PageTitle>
+
+<h1>Ejercicio 8: Verificar si el Entero Corresponde a una Letra Minúscula en ASCII</h1>
+<p>Construir una función que reciba como parámetro un entero y retorne 1 si corresponde al código ASCII de una letra minúscula. Retornará 0 si no es así.</p>
+
+<input type="number" @bind="codigoAscii" placeholder="Ingresa un número" />
+<button @onclick="VerificarCodigoAscii">Verificar Código ASCII</button>
+
+@if (resultado != null)
+{
+    <p>El resultado es: @resultado</p>
+}
+
+@code {
+    private int codigoAscii;
+    private int? resultado;
+
+    private void VerificarCodigoAscii()
+    {
+       
+        if (codigoAscii >= 97 && codigoAscii <= 122)
+        {
+            resultado = 1;
+        }
+        else
+        {
+            resultado = 0;
+        }
+    }
+}

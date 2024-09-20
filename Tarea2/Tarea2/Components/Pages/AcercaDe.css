@@ -1,0 +1,14 @@
+body {
+    background-color: #000000; /* Cambia esto por el color que desees */
+    font-family: Arial, sans-serif; /* Cambia la fuente si lo deseas */
+    color: #ad0c0c; /* Cambia el color del texto */
+}
+
+h1 {
+    text-align: center; /* Centra el título */
+    margin-top: 20px; /* Agrega un margen superior */
+}
+
+p {
+    text-align: center; /* Centra el texto */
+}

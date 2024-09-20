@@ -1,0 +1,36 @@
+@page "/ejercicio4"
+@rendermode InteractiveServer
+
+<PageTitle>Ejercicio 4</PageTitle>
+
+<h1>Ejercicio 4: Verificar en la Serie de Fibonacci</h1>
+<p>Construir una función que reciba como parámetro un entero y retorne 1 si dicho número está entre los 30 primeros elementos de la serie de Fibonacci. Deberá retornar 0 si no es así.</p>
+
+<input type="number" @bind="numero" placeholder="Ingresa un número entero" />
+<button @onclick="VerificarFibonacci">Verificar en Fibonacci</button>
+
+@if (resultado != null)
+{
+    <p>El resultado es: @resultado</p>
+}
+
+@code {
+    private int numero;
+    private int resultado;
+
+    private void VerificarFibonacci()
+    {
+        var fibonacci = GenerarFibonacci(30);
+        resultado = fibonacci.Contains(numero) ? 1 : 0;
+    }
+
+    private List<int> GenerarFibonacci(int n)
+    {
+        var lista = new List<int> { 0, 1 };
+        for (int i = 2; i < n; i++)
+        {
+            lista.Add(lista[i - 1] + lista[i - 2]);
+        }
+        return lista;
+    }
+}

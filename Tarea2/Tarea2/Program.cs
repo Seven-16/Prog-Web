@@ -1,5 +1,6 @@
 using Tarea2.Components;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.

@@ -1,0 +1,54 @@
+@page "/ejercicio13"
+@rendermode InteractiveServer
+
+<PageTitle>Ejercicio 13</PageTitle>
+
+<h3>Ejercicio 13: Contar Números Primos en un Vector de 10 Números</h3>
+
+<div>
+    <label>Introduce 10 números separados por comas:</label>
+    <input @bind="numerosInput" class="form-control" placeholder="Ej: 2,3,5,7,11,13,17,19,23,29" />
+    <button class="btn btn-primary mt-2" @onclick="ContarPrimos">Contar Primos</button>
+</div>
+
+@if(cantidadPrimos >= 0)
+{
+    <p>La cantidad de números primos en el vector es: @cantidadPrimos</p>
+}
+
+@code {
+
+    string numerosInput = "";
+    int cantidadPrimos = -1;
+
+    void ContarPrimos()
+    {
+
+        var numeros = numerosInput.Split(',').Select(int.Parse).ToArray();
+
+
+        if (numeros.Length == 10)
+        {
+
+            cantidadPrimos = numeros.Count(EsPrimo);
+        }
+        else
+        {
+            cantidadPrimos = -1; 
+            Console.WriteLine("Debes ingresar exactamente 10 números.");
+        }
+    }
+
+    bool EsPrimo(int numero)
+    {
+        if (numero < 2)
+            return false;
+
+        for (int i = 2; i <= Math.Sqrt(numero); i++)
+        {
+            if (numero % i == 0)
+                return false;
+        }
+        return true;
+    }
+}

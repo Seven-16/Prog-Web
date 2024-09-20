@@ -1,0 +1,28 @@
+@page "/ejercicio6"
+@rendermode InteractiveServer
+
+<PageTitle>Ejercicio 6</PageTitle>
+
+<h1>Ejercicio 6: Verificar Dígito en Entero</h1>
+<p>Construir una función que reciba como parámetro un entero y un dígito, y retorne 1 si dicho dígito está en dicho entero y 0 si no es así.</p>
+
+<input type="number" @bind="numero" placeholder="Ingresa un número entero" />
+<input type="number" @bind="digito" placeholder="Ingresa un dígito" />
+<button @onclick="VerificarDigito">Verificar Dígito</button>
+
+@if (resultado != null)
+{
+    <p>El resultado es: @resultado</p>
+}
+
+@code {
+    private int numero;
+    private int digito;
+    private int resultado;
+
+    private void VerificarDigito()
+    {
+        
+        resultado = Math.Abs(numero).ToString().Contains(digito.ToString()) ? 1 : 0;
+    }
+}

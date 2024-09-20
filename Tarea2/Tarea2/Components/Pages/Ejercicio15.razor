@@ -1,0 +1,45 @@
+@page "/ejercicio15"
+@rendermode InteractiveServer
+
+<PageTitle>Ejercicio 15</PageTitle>
+
+<h3>Ejercicio 15: Calcular el promedio de un vector</h3>
+
+<p>Construir una función que reciba como parámetro un vector de 10 posiciones enteras y retorne el promedio real del vector.</p>
+
+<div>
+    <label>Introduce 10 números separados por comas:</label>
+    <input @bind="numerosInput" class="form-control" placeholder="Ej: 2,3,5,7,11,13,17,19,23,29" />
+    <button class="btn btn-primary mt-2" @onclick="CalcularPromedio">Calcular Promedio</button>
+</div>
+
+@if(promedio >= 0)
+{
+    <p>El promedio del vector es: @promedio</p>
+}
+else if(promedio == -1)
+{
+    <p>Debes ingresar exactamente 10 números.</p>
+}
+
+@code {
+    string numerosInput = "";
+    double promedio = -1;
+
+    void CalcularPromedio()
+    {
+
+        var numeros = numerosInput.Split(',').Select(int.Parse).ToArray();
+
+        if (numeros.Length == 10)
+        {
+          
+            double suma = numeros.Sum();
+            promedio = suma / numeros.Length; 
+        }
+        else
+        {
+            promedio = -1; 
+        }
+    }
+}
