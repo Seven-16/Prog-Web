@@ -1,7 +1,43 @@
 ﻿@page "/"
+@rendermode InteractiveServer
+@inject IJSRuntime JSx
+@using System.Text.Json
 
-<PageTitle>Home</PageTitle>
+<PageTitle>Estadisticas</PageTitle>
 
-<h1>Hello, world!</h1>
+<p>Pagina de estadisticas</p>
 
-Welcome to your new app.
+<div>
+    Cantidad de casos registrados: @registros.Count
+</div>
+
+<div>
+    Total de Vehiculos: @registros.Sum(r => r.VehiculosInvolucrados)
+</div>
+
+<div>
+    Total de Muertos: @registros.Sum(r => r.Muertos)
+</div>
+
+<div>
+    Total de costos estimados: 
+</div>
+
+@code{
+    Lista<Reporte> registros = new List<Reporte>();
+    
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if(firstRender)
+        {
+            var RegistrosJson = await JSx.InvokeAsync<string>("localStorage.getItem", "registros");
+
+            if (registros != null)
+            {
+                registros = JsonSerializer.Deserialize<List<Reporte>>(registros);
+                
+                StateHasChanged()
+            }
+        }
+    }
+}
