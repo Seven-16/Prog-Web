@@ -1,0 +1,78 @@
+@page "/registro"
+@inject NavigationManager NavMan
+@rendermode InteractiveServer
+@using System.Text.Json
+@inject IJSRuntime JSx
+
+<h3>Registros Recibidos</h3>
+
+<div class="text-end">
+    <button class="btn btn-primary" @onclick="NuevoRegistro">Nuevo Registro</button>
+</div>
+
+<table class="table table-stripped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Fecha</th>
+            <th>Descripcion</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var registro in registros)
+        {
+            <tr>
+                <td>@registro.Id</td>
+                <td>@registro.Fecha</td>
+                <td>@registro.Descripcion</td>
+                <td>
+                    <button @onclick="()=>editarFila(registro)" class ="btn btn-secondary">Editar</button>
+                    <button @onclick="()=>eliminarFila(registro)" class ="btn btn-danger btn-sm">Eliminar</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+@code{
+
+    List<Reporte> registros = new List<Reporte>();
+    private void NuevoRegistro()
+    {
+        NavMan.NavigateTo("registro/nuevo");
+    }
+
+    private void editarFila(Reporte registro)
+    {
+        NavMan.NavigateTo("registro/editar/"+ registro.Id);
+    }
+    private async Task eliminarFila(Reporte registro)
+    {
+        var rs = await JSx.InvokeAsync<bool>("confirm", "Esta seguro de eliminar registro");
+        if(rs){
+        registros.Remove(registro);
+        JSx.InvokeVoidAsync("localStorage.setItem", "registro", JsonSerializer.Serialize(registros));
+        StateHasChanged();
+        }
+    }
+
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+
+        if (firstRender)
+        {
+
+            var registrosJson = await JSx.InvokeAsync<string>("localStorage.getItem", "registros");
+
+            if(registrosJson != null){
+
+                registros = JsonSerializer.Deserialize<List<Reporte>>(registrosJson);
+                StateHasChanged();
+            }
+        }
+    }
+
+}

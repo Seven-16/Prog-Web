@@ -1,0 +1,61 @@
+@page "/aprendemas"
+@rendermode InteractiveServer
+
+<PageTitle>Aprende Más</PageTitle>
+
+@if(mostrarVideo){
+    <div class="embed-responsive embed-responsive-16by9" style="max-width:900px;">
+  <iframe class="" style="width:100%; height:600px" src="@urlVideo" allowfullscreen></iframe>
+</div>
+<button class="btn btn-primary" @onclick="()=>mostrarVideo = false">Cerrar Video</button>
+}
+else
+{
+
+<h1>Aprende Más</h1>
+<p>Si estas empezando a aprender Blazor aquí te dejo unos cuantos videos<br />
+para conocer conceptos básicos de Blazor! 🔥</p>
+
+<div class=" row">
+
+@foreach(var video in videos){
+    <div class= "col-md-4 mb-3">
+        <div class="card">
+            <img @onclick="()=>verVideo(video)" src="https://i.ytimg.com/vi/@video.Url/hqdefault.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Video</h5>
+                <p class="card-text">@video.Titulo</p>
+                <a href="https://www.youtube.com/watch?v=@video.Url"target="_blank"
+                 class="btn btn-primary">Click para ver</a>
+        </div>
+    </div>
+</div>
+}
+</div>
+}
+@code {
+
+    bool mostrarVideo = false;
+    string urlVideo = "";
+
+    class Video{
+        public string Titulo { get; set; } = "";
+        public string Url { get; set; } = "";
+    }
+
+    void verVideo(Video video){
+        mostrarVideo = true;
+        urlVideo = $"https://www.youtube.com/embed/{video.Url}?rel=0";
+        StateHasChanged();
+    }
+
+    List<Video> videos = new List<Video>{
+        new Video{Titulo = "¿Qué diablos es Blazor? | ejemplo básico", Url = "ktDj2xD-H9s"},
+        new Video{Titulo = "Blazor en 100 segundos", Url = "QXxNlpjnulI"},
+        new Video{Titulo = "Crear CRUD en Blazor y ASP.NET WEB API ✅ Completo ✅", Url = "NOJveObsX0Q"},
+        new Video{Titulo = "Blazor WebAssembly y Web API en .NET 6: curso completo (C#)", Url = "sHuuo9L3e5c"},
+        new Video{Titulo = "Blazor desde Cero: Tu primera aplicación Blazor + Entity Framework (CRUD) | Curso práctico de Blazor", Url = "0zYdUwhursg"},
+        new Video{Titulo = "¿QUÉ ES BLAZOR? ¿EL NUEVO JAVASCRIPT DE MICROSOFT?", Url = "piNHZAMxVuk"},
+    };
+
+}
