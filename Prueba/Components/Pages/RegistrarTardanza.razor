@@ -1,0 +1,52 @@
+@page "/registrar-tardanza"
+@inject TardanzaServicio TardanzaServicio
+@inject NavigationManager NavigationManager
+@rendermode InteractiveServer
+
+<h2>Nueva Tardanza</h2>
+
+<EditForm Model="@nuevaTardanza" OnInvalidSubmit="GuardarTardanza">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label for="matricula">Matrícula:</label>
+        <InputText id="matricula" @bind-Value="nuevaTardanza.Estudiante.Matricula" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <InputText id="nombre" @bind-Value="nuevaTardanza.Estudiante.Nombre" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="apellido">Apellido:</label>
+        <InputText id="apellido" @bind-Value="nuevaTardanza.Estudiante.Apellido" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="curso">Curso:</label>
+        <InputText id="curso" @bind-Value="nuevaTardanza.Estudiante.Curso" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="motivo">Motivo:</label>
+        <InputTextArea id="motivo" @bind-Value="nuevaTardanza.Motivo" class="form-control" />
+    </div>
+
+    <button class="btn btn-primary" @onclick="GuardarTardanza">Guardar</button>
+</EditForm>
+
+@code
+{
+    private Tardanza nuevaTardanza = new Tardanza
+    {
+        Estudiante = new Estudiante()
+    };
+
+    private void GuardarTardanza()
+    {
+        TardanzaServicio.RegistrarTardanza(nuevaTardanza);
+        NavigationManager.NavigateTo("/");
+    }
+}

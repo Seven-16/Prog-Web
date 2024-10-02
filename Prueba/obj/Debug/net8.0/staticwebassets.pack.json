@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Programación Web\\Prueba\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Prueba.bundle.scp.css",
+      "PackagePath": "staticwebassets\\Prueba.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Programación Web\\Prueba\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "C:\\Programación Web\\Prueba\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Programación Web\\Prueba\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Programación Web\\Prueba\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Prueba.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.Prueba.props",
+      "PackagePath": "build\\Prueba.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.Prueba.props",
+      "PackagePath": "buildMultiTargeting\\Prueba.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.Prueba.props",
+      "PackagePath": "buildTransitive\\Prueba.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
