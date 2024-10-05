@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\AplicacionTardanza.props" />
+</Project>
