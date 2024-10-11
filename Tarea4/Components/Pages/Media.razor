@@ -1,0 +1,26 @@
+@page "/series"
+@inject MediaDbContext dbContext
+@inject NavigationManager NavigationManager
+
+
+<h3>Registrar Serie, Pelicula, Libro</h3>
+
+
+@code {
+
+    private async Task GuardarMedia()
+
+    {
+       private Media media = new Media();
+
+    dbContext.Media.Add(media);  // Corrected dbContext usage
+
+    await dbContext.SaveChangesAsync();
+
+    NavigationManager.NavigateTo("/medialist");
+    }
+
+        
+
+    
+}
