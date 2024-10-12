@@ -36,7 +36,7 @@
     <div class="form-group">
         <label for="media">Media:</label>
         <InputSelect id="media" @bind-Value="personaje.MediaId" class="form-control">
-            @foreach (var media in DbContext.Media)
+            @foreach (var media in DbContext.Medias)
             {
                 <option value="@media.Id"></option>
             }

@@ -42,12 +42,12 @@
 
     protected override async Task OnInitializedAsync()
     {
-        media = await DbContext.Media.FindAsync(Id);
+        media = await DbContext.Medias.FindAsync(Id);
     }
 
     private async Task GuardarMedia()
     {
-        DbContext.Media.Update(media);
+        DbContext.Medias.Update(media);
         await DbContext.SaveChangesAsync();
         NavigationManager.NavigateTo("/");
     }

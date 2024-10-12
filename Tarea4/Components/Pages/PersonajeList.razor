@@ -18,7 +18,15 @@
     <tbody>
         @foreach (var personaje in personajes)
         {
-
+            <tr>
+                <td>@personaje.Nombre</td>
+                <td>@personaje.Apodo</td>
+                <td>@personaje.Raza</td>
+                <td>
+                    <button class="btn btn-primary" @onclick="() => NavigateToEdit(personaje.Id)">Editar</button>
+                    <button class="btn btn-danger" @onclick="() => DeleteCharacter(personaje.Id)">Eliminar</button>
+                </td>
+            </tr>
         }
     </tbody>
 </table>
@@ -32,7 +40,7 @@
     
     protected override async Task OnInitializedAsync()
     {
-        media = await DbContext.Media.FindAsync(MediaId);
+        media = await DbContext.Medias.FindAsync(MediaId);
         personajes = await DbContext.Personajes.Where(c => c.MediaId == MediaId).ToListAsync();
     }
 

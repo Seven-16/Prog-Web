@@ -37,7 +37,7 @@
     private Media media = new Media();
     private async Task GuardarMedia()
     {
-        DbContext.Media.Add(media);
+        DbContext.Medias.Add(media);
         await DbContext.SaveChangesAsync();
         NavigationManager.NavigateTo("/");
     }

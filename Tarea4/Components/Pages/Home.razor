@@ -18,7 +18,7 @@
     </thead>
 
     <tbody>
-        @foreach (var media in DbContext.Media)
+        @foreach (var media in DbContext.Medias)
         {
             <tr>
                 <td>@media.Nombre</td>
@@ -38,7 +38,7 @@
 {
     protected override async Task OnInitializedAsync()
     {
-        await DbContext.Media.LoadAsync();
+        await DbContext.Medias.LoadAsync();
     }
 
     private void NavigateToEdit(int id)
@@ -48,10 +48,10 @@
 
     private async Task DeleteMedia(int id)
     {
-        var media = await DbContext.Media.FindAsync(id);
+        var media = await DbContext.Medias.FindAsync(id);
         if(media != null)
         {
-            DbContext.Media.Remove(media);
+            DbContext.Medias.Remove(media);
             await DbContext.SaveChangesAsync();
         }
     }

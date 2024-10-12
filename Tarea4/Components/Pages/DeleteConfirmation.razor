@@ -21,10 +21,10 @@
     {
         if (Tipo == "media")
         {
-            var media = await DbContext.Media.FindAsync(Id);
+            var media = await DbContext.Medias.FindAsync(Id);
             if (media != null)
             {
-                DbContext.Media.Remove(media);
+                DbContext.Medias.Remove(media);
                 await DbContext.SaveChangesAsync();
             }
             NavigationManager.NavigateTo("/");
