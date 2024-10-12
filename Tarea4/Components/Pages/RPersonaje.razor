@@ -1,0 +1,60 @@
+@page "/registrar-personaje"
+@inject MediaDbContext DbContext
+@inject NavigationManager NavigationManager
+
+<PageTitle>Personaje</PageTitle>
+<h3>Registrar Personaje</h3>
+
+<EditForm Model="@personaje" OnValidSubmit="@GuardarMedia">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <InputText id="nombre" @bind-Value="@personaje.Nombre"/>
+    </div>
+    <div class="form-group">
+        <label for="apodo">Apodo:</label>
+        <InputText id="apodo" @bind-Value="@personaje.Apodo" />
+    </div>
+    <div class="form-group">
+        <label for="raza">Raza:</label>
+        <InputText id="raza" @bind-Value="@personaje.Raza" />
+    </div>
+    <div class="form-group">
+        <label for="foto">Foto:</label>
+        <InputText id="foto" @bind-Value="@personaje.FotoUrl" />
+    </div>
+    <div class="form-group">
+        <label for="edad">Edad:</label>
+        <InputNumber id="edad" @bind-Value="@personaje.Edad" />
+    </div>
+    <div class="form-group">
+        <label for="poder">Poder:</label>
+        <InputNumber id="poder" @bind-Value="@personaje.Poder" />
+    </div>
+    <div class="form-group">
+        <label for="media">Media:</label>
+        <InputSelect id="media" @bind-Value="personaje.MediaId" class="form-control">
+            @foreach (var media in DbContext.Media)
+            {
+                <option value="@media.Id"></option>
+            }
+        </InputSelect>
+    </div>
+
+    <button type="guardar" class="btn btn-primary">Guardar</button>
+</EditForm>
+
+
+@code{
+
+    private Personaje personaje = new Personaje();
+
+    private async Task GuardarMedia()
+    {
+        DbContext.Personajes.Add(personaje);
+        await DbContext.SaveChangesAsync();
+        NavigationManager.NavigateTo("/");
+    }
+}

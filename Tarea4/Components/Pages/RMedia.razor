@@ -1,0 +1,44 @@
+@page "/registrar-series"
+@inject MediaDbContext DbContext
+@inject NavigationManager NavigationManager
+
+<PageTitle>Media</PageTitle>
+<h3>Registrar Serie, Pelicula, Libro</h3>
+
+<EditForm Model="@media" OnValidSubmit="GuardarMedia">
+    <DataAnnotationsValidator  />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <InputText id="nombre" @bind-Value="media.Nombre"/>
+    </div>
+    <div class="form-group">
+        <label for="pais">Pais:</label>
+        <InputText id="pais" @bind-Value="media.Pais"/>
+    </div>
+    <div class="form-group">
+        <label for="idioma">Idioma:</label>
+        <InputText id="idioma" @bind-Value="media.Idioma"/>
+    </div>
+    <div class="form-group">
+        <label for="fotourl">Foto:</label>
+        <InputText id="foto" @bind-Value="media.FotoUrl"/>
+    </div>
+    <div class="form-group">
+        <label for="resumen">Resumen:</label>
+        <InputTextArea id="resumen" @bind-Value="media.Resumen"/>
+    </div>
+
+    <button type="guardar" class="btn btn-primary">Guardar</button>
+</EditForm>
+
+@code{
+    private Media media = new Media();
+    private async Task GuardarMedia()
+    {
+        DbContext.Media.Add(media);
+        await DbContext.SaveChangesAsync();
+        NavigationManager.NavigateTo("/");
+    }
+}

@@ -1,7 +1,58 @@
 ﻿@page "/"
+@inject MediaDbContext DbContext
+@inject NavigationManager NavigationManager
+@using Microsoft.EntityFrameworkCore
 
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
+<h3>Lista de Peliculas, Series, Libros</h3>
 
-Welcome to your new app.
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>País</th>
+            <th>Idioma</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var media in DbContext.Media)
+        {
+            <tr>
+                <td>@media.Nombre</td>
+                <td>@media.Pais</td>
+                <td>@media.Idioma</td>
+                <td>
+                    <button class="btn btn-primary" @onclick="() => NavigateToEdit(media.Id)">Editar</button>
+                    <button class="btn btn-danger" @onclick="() => DeleteMedia(media.Id)">Eliminar</button>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code
+{
+    protected override async Task OnInitializedAsync()
+    {
+        await DbContext.Media.LoadAsync();
+    }
+
+    private void NavigateToEdit(int id)
+    {
+        NavigationManager.NavigateTo($"/edit-media/{id}");
+    }
+
+    private async Task DeleteMedia(int id)
+    {
+        var media = await DbContext.Media.FindAsync(id);
+        if(media != null)
+        {
+            DbContext.Media.Remove(media);
+            await DbContext.SaveChangesAsync();
+        }
+    }
+}

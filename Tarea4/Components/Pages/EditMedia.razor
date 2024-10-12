@@ -1,0 +1,54 @@
+@page "/edit-media/{Id:int}"
+@inject MediaDbContext DbContext
+@inject NavigationManager NavigationManager
+
+<PageTitle>Editar Media</PageTitle>
+<h3>Editar Media</h3>
+
+<EditForm Model="@media" OnValidSubmit="GuardarMedia">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <InputText id="nombre" @bind-Value="media.Nombre" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="pais">País:</label>
+        <InputText id="pais" @bind-Value="media.Pais" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="idioma">Idioma:</label>
+        <InputText id="idioma" @bind-Value="media.Idioma" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="foto">Foto URL:</label>
+        <InputText id="foto" @bind-Value="media.FotoUrl" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="resumen">Resumen:</label>
+        <InputText id="resumen" @bind-Value="media.Resumen" class="form-control" />
+    </div>
+
+    <button type="guardar" class="btn btn-primary">Guardar</button>
+
+</EditForm>
+
+@code
+{
+    [Parameter]
+    public int Id {get; set;}
+    private Media media = new Media();
+
+    protected override async Task OnInitializedAsync()
+    {
+        media = await DbContext.Media.FindAsync(Id);
+    }
+
+    private async Task GuardarMedia()
+    {
+        DbContext.Media.Update(media);
+        await DbContext.SaveChangesAsync();
+        NavigationManager.NavigateTo("/");
+    }
+}

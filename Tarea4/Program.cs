@@ -8,8 +8,8 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 //EntityFrameworkCore
-   //builder.Services.AddDbContext<MediaDbContext> (options => 
-    //options.UseSqlite(builder.Configuration.GetConnectionString("Data Source=Media.db")));
+   builder.Services.AddDbContext<MediaDbContext> (options => 
+    options.UseSqlite(builder.Configuration.GetConnectionString("Data Source=Media.db")));
 
 var app = builder.Build();
 

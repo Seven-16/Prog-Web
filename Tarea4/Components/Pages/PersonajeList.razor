@@ -1,0 +1,54 @@
+@page "/characters/{MediaId:int}"
+@inject MediaDbContext DbContext
+@inject NavigationManager NavigationManager
+@using Microsoft.EntityFrameworkCore
+
+<PageTitle>Lista Personaje</PageTitle>
+<h3>Personajes para @media?.Nombre</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apodo</th>
+            <th>Raza</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var personaje in personajes)
+        {
+
+        }
+    </tbody>
+</table>
+
+@code
+{
+    [Parameter]
+    public int MediaId {get; set;}
+    private Media media;
+    private List<Personaje> personajes = new List<Personaje>();
+    
+    protected override async Task OnInitializedAsync()
+    {
+        media = await DbContext.Media.FindAsync(MediaId);
+        personajes = await DbContext.Personajes.Where(c => c.MediaId == MediaId).ToListAsync();
+    }
+
+    private void NavigateToEdit(int id)
+    {
+        NavigationManager.NavigateTo($"/edit-character/{id}");
+    }
+
+    private async Task DeleteCharacter(int id)
+    {
+        var personaje = await DbContext.Personajes.FindAsync(id);
+        if(personaje != null)
+        {
+            DbContext.Personajes.Remove(personaje);
+            await DbContext.SaveChangesAsync();
+            personajes.Remove(personaje);
+        }
+    }
+}  

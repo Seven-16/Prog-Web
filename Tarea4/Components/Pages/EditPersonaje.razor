@@ -1,0 +1,31 @@
+@page "/edit-character/{Id:int}"
+@inject MediaDbContext DbContext
+@inject NavigationManager NavigationManager
+
+<h3>Editar Personaje</h3>
+
+<EditForm Model="@personaje" OnValidSubmit="GuardarPersonaje">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+      
+
+</EditForm>
+
+@code
+{
+    [Parameter]
+    public int Id {get; set;}
+    private Personaje personaje = new Personaje();
+    protected override async Task OnInitializedAsync()
+    {
+        personaje = await DbContext.Personajes.FindAsync(Id);
+    }
+
+    private async Task GuardarPersonaje()
+    {
+        DbContext.Personajes.Update(personaje);
+        await DbContext.SaveChangesAsync();
+        NavigationManager.NavigateTo($"/characters/{personaje.MediaId}");
+    }
+}
