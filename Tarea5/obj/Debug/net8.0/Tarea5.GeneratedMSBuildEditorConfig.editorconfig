@@ -22,10 +22,6 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Programación Web/Tarea5/Components/Pages/CharacterForm.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDaGFyYWN0ZXJGb3JtLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Programación Web/Tarea5/Components/Pages/Error.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -34,12 +30,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Programación Web/Tarea5/Components/Pages/PlatformManager.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQbGF0Zm9ybU1hbmFnZXIucmF6b3I=
+[C:/Programación Web/Tarea5/Components/Pages/PersonajeForm.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQZXJzb25hamVGb3JtLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Programación Web/Tarea5/Components/Pages/VideogameForm.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xWaWRlb2dhbWVGb3JtLnJhem9y
+[C:/Programación Web/Tarea5/Components/Pages/PlataformasForm.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQbGF0YWZvcm1hc0Zvcm0ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Programación Web/Tarea5/Components/Pages/VideojuegosForm.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xWaWRlb2p1ZWdvc0Zvcm0ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Programación Web/Tarea5/Components/Routes.razor]

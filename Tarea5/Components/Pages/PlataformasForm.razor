@@ -1,0 +1,78 @@
+@page "/plataformas"
+@inject AppDbContext DbContext
+
+<h3>Gestión de Plataformas</h3>
+
+<EditForm Model="@plataforma" OnValidSubmit="Guardar">
+<DataAnnotationsValidator />
+<ValidationSummary />
+
+<div class="form-group">
+    <label for="nombre">Nombre de la plataforma:</label>
+    <InputText id="nombre" @bind-Value="plataforma.Nombre" class="form-control" />
+</div>
+
+<div class="form-group">
+    <label for="estado">Estado:</label>
+    <InputSelect id="estado" @bind-Value="plataforma.Activa" class="form-control">
+    <option value="true">Activa</option>
+    <option value="false">Inactiva</option>
+    </InputSelect>
+</div>
+
+<button type="submit" class="btn btn-primary">Guardar</button>
+</EditForm>
+
+<h4>Plataformas existentes</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var plataforma in DbContext.Plataformas.ToList())
+        {
+            <tr>
+                <td>@plataforma.Nombre</td>
+                <td>@(plataforma.Activa ? "Activa" : "Inactiva")</td>
+                <td>
+                    <button class="btn btn-secondary" @onclick="() => Editar(plataforma)">Editar</button>
+                    <button class="btn btn-danger" @onclick="() => Eliminar(plataforma)">Eliminar</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code
+{
+    private Plataforma plataforma = new Plataforma();
+
+    private async Task Guardar()
+    {
+        if(plataforma.Id == 0)
+        {
+            DbContext.Plataformas.Add(plataforma);
+        }
+        else
+        {
+            DbContext.Plataformas.Update(plataforma);
+        }
+        await DbContext.SaveChangesAsync();
+        plataforma = new Plataforma();
+    }
+
+    private void Editar(Plataforma plataformaSeleccionada)
+    {
+        plataforma = plataformaSeleccionada;
+    }
+
+    private async Task Eliminar(Plataforma plataformaSeleccionada)
+    {
+        DbContext.Plataformas.Remove(plataformaSeleccionada);
+        await DbContext.SaveChangesAsync();
+    }
+}

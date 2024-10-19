@@ -1,0 +1,60 @@
+@page "/videojuegos"
+@inject AppDbContext DbContext
+
+<EditForm Model="@videojuego" OnValidSubmit="Guardar">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <InputText id="nombre" @bind-Value="videojuego.Nombre" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="desarrollador">Desarrollador:</label>
+        <InputText id="desarrollador" @bind-Value="videojuego.Desarrollador" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="plataforma">Plataforma:</label>
+        <InputSelect id="plataforma" @bind-Value="videojuego.PlatformId" class="form-control">
+        @foreach (var plataforma in DbContext.Plataformas)
+        {
+            <option value="@plataforma.Id">@plataforma.Nombre</option>
+        }
+        </InputSelect>
+    </div>
+
+    <div class="form-group">
+        <label for="genero">Género:</label>
+        <InputText id="genero" @bind-Value="videojuego.Genero" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="fecha">Fecha de lanzamiento:</label>
+        <InputDate id="fecha" @bind-Value="videojuego.Fecha" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="portada">Imagen de portada (URL):</label>
+        <InputText id="portada" @bind-Value="videojuego.CoverImage" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="descripcion">Descripción:</label>
+        <InputTextArea id="descripcion" @bind-Value="videojuego.Descripcion" class="form-control" />
+    </div>
+
+     <button type="submit" class="btn btn-primary">Guardar</button>
+</EditForm>
+
+
+@code
+{
+    private Videojuego videojuego = new Videojuego();
+    private async Task Guardar()
+    {
+        DbContext.Videojuegos.Add(videojuego);
+        await DbContext.SaveChangesAsync();
+    }
+}
