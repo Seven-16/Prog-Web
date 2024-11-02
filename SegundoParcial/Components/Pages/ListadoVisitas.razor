@@ -1,0 +1,63 @@
+﻿@page "/listado"
+@inject AppDbContext dbContext
+@rendermode InteractiveServer
+@using Microsoft.EntityFrameworkCore;
+@inject NavigationManager NavigationManager
+
+
+<PageTitle>Listado</PageTitle>
+
+<h1>Listado de Visitas</h1>
+
+<!-- Este boton no es para volver al formulario, es para cargar la bd-->
+<button class="btn btn-primary" @onclick="ActualizarListado">Actualizar</button>
+<button class="btn btn-danger" @onclick="Regresar">Volver</button>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Telefono</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var visita in visitas)
+        {
+            <tr>
+                <td>@visita.Telefono</td>
+                <td>@visita.Nombre</td>
+                <td>@visita.Apellido</td>
+                <td>@visita.Correo</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+@code 
+{
+    private List<Visita> visitas = new List<Visita>();
+    
+    protected override async Task OnInitializedAsync()
+    {
+        await CargarVisitas();
+    }
+    
+    private async Task CargarVisitas()
+    {
+        visitas = await dbContext.Visitas.ToListAsync();
+    }
+    private async Task ActualizarListado()
+    {
+        await CargarVisitas();
+    }
+
+    private void Regresar()
+    {
+        NavigationManager.NavigateTo("/");
+    }
+}
+

@@ -1,0 +1,61 @@
+﻿@page "/"
+@inject AppDbContext dbContext
+@inject NavigationManager navigationManager
+@rendermode InteractiveServer
+
+<PageTitle>Registrar Visita</PageTitle>
+
+<h3>Registro de Visitas</h3>
+
+<!--Formulario-->
+<EditForm Model="@nuevaVisita" OnInvalidSubmit="GuardarVisita">
+    <!--Esto activa la validacion de los datos insertados-->
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <!-- Telefono -->
+    <div class="form-group">
+        <label for="telefono">Teléfono:</label>
+        <InputText id="telefono" @bind-Value="nuevaVisita.Telefono" class="form-control" />
+    </div>
+
+    <!-- Nombre -->
+    <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <InputText id="nombre" @bind-Value="nuevaVisita.Nombre" class="form-control" />
+    </div>
+
+    <!-- Apellido -->
+    <div class="form-group">
+        <label for="apellido">Apellido:</label>
+        <InputText id="apellido" @bind-Value="nuevaVisita.Apellido" class="form-control" />
+    </div>
+
+    <!-- Correo -->
+    <div class="form-group">
+        <label for="correo">Email:</label>
+        <InputText id="correo" @bind-Value="nuevaVisita.Correo" class="form-control" />
+    </div>
+
+    <button class="btn btn-primary" @onclick="GuardarVisita">Guardar</button>
+    
+</EditForm>
+
+@code
+{
+    private Visita nuevaVisita = new Visita();
+    
+    private async Task GuardarVisita()
+    {
+        dbContext.Visitas.Add(nuevaVisita);
+        await dbContext.SaveChangesAsync();
+        nuevaVisita = new Visita(); //Esto para limpiar el formulario
+        navigationManager.NavigateTo("listado", true);
+        //Esto para redirigir al listado de visitas
+
+    }
+
+    
+}
+
+

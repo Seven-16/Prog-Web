@@ -1,10 +1,16 @@
 using SegundoParcial.Components;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+//Servicio para la base de datos, esto hara que la base de datos de sqlite se cree
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlite("Data Source=visitas.db"));
 
 var app = builder.Build();
 

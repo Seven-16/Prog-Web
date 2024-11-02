@@ -30,12 +30,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Programación Web/SegundoParcial/Components/Pages/Home.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
+[C:/Programación Web/SegundoParcial/Components/Pages/ListadoVisitas.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xMaXN0YWRvVmlzaXRhcy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Programación Web/SegundoParcial/Components/Pages/Weather.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xXZWF0aGVyLnJhem9y
+[C:/Programación Web/SegundoParcial/Components/Pages/RegistroVisitas.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xSZWdpc3Ryb1Zpc2l0YXMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Programación Web/SegundoParcial/Components/Routes.razor]
