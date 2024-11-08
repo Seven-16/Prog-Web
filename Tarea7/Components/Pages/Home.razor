@@ -1,0 +1,86 @@
+﻿@page "/"
+@page "/mantenimiento"
+@rendermode InteractiveServer
+
+<PageTitle>Mantenimiento</PageTitle>
+
+<h1>Mantenimiento de Detención</h1>
+
+@if(modo == Modo.Lista)
+{
+    <h3>Listado de Detenciones</h3>
+    <div class="text-end">
+        <button class="btn btn-primary" @onclick="()=>modo = Modo.Editar">Guardar</button>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Nombre</th>
+                <th>Coordenadas</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var detenido in detenidos)
+            {
+                <tr>
+                    <td>@detenido.FechaDetencion</td>
+                    <td>@detenido.Nombre @detenido.Apellido</td>
+                    <td>@detenido.Coordenadas</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}else if(modo == Modo.Editar){
+    <EditForm Model="@detencion" OnValidSubmit="GuardarDetencion">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="form-group">
+            <label for="FechaDetencion">Fecha de Detención</label>
+            <InputDate id="FechaDetencion" @bind-Value="@detencion.FechaDetencion" class="form-control" />
+            <ValidationMessage For="@(() => detencion.FechaDetencion)"/>
+        </div>
+        
+        <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <InputDate id="nombre" @bind-Value="@detencion.Nombre" class="form-control" />
+            <ValidationMessage For="@(() => detencion.Nombre)"/>
+        </div>
+
+        <div class="form-group">
+            <label for="apellido">Apellido</label>
+            <InputDate id="apellido" @bind-Value="@detencion.Apellido" class="form-control" />
+            <ValidationMessage For="@(() => detencion.Apellido)"/>
+        </div>
+
+        <div class="form-group">
+            <label for="latitud">Latitud</label>
+            <InputDate id="latitud" @bind-Value="@detencion.Latitud" class="form-control" />
+            <ValidationMessage For="@(() => detencion.FechaDetencion)"/>
+        </div>
+
+
+
+
+    </EditForm>
+}
+
+@code{
+
+    enum Modo{
+        Lista, 
+        Editar,
+    }
+    public void GuardarDetencion()
+    {
+    
+    }
+
+    Modo modo = Modo.Lista;
+
+    List<Detenido> detenidos = new List<Detenido>();
+    
+    Detenido detencion = new Detenido();
+}
