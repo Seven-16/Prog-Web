@@ -1,2 +1,17 @@
 @page "/calendario"
 @rendermode InteractiveServer
+@inject DetenidosContext dbContext
+@using Microsoft.EntityFrameworkCore;
+
+<h3>Calendario de Detenciones</h3>
+
+<Calendar Detenidos="detenidos" />
+
+@code {
+    private List<Detenido> detenidos = new List<Detenido>();
+    
+    protected override async Task OnInitializedAsync()
+    {
+        detenidos = await dbContext.Detenidos.ToListAsync();
+    }
+}    

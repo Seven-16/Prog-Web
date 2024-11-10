@@ -131,3 +131,5 @@ C:\Programación Web\Tarea7\obj\Debug\net8.0\refint\Tarea7.dll
 C:\Programación Web\Tarea7\obj\Debug\net8.0\Tarea7.pdb
 C:\Programación Web\Tarea7\obj\Debug\net8.0\Tarea7.genruntimeconfig.cache
 C:\Programación Web\Tarea7\obj\Debug\net8.0\ref\Tarea7.dll
+C:\Programación Web\Tarea7\obj\Debug\net8.0\scopedcss\Components\Propios\Calendar.razor.rz.scp.css
+C:\Programación Web\Tarea7\bin\Debug\net8.0\Newtonsoft.Json.dll

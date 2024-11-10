@@ -50,6 +50,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xXZWF0aGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Programación Web/Tarea7/Components/Propios/AsgMap.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQcm9waW9zXEFzZ01hcC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Programación Web/Tarea7/Components/Routes.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb3V0ZXMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
@@ -65,3 +69,7 @@ build_metadata.AdditionalFiles.CssScope = b-ojhsz8hnuo
 [C:/Programación Web/Tarea7/Components/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-ibk3fwa563
+
+[C:/Programación Web/Tarea7/Components/Propios/Calendar.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQcm9waW9zXENhbGVuZGFyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-xehlqjg0om

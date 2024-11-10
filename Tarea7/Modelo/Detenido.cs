@@ -8,7 +8,7 @@ public class Detenido
     public DateTime? FechaNacimiento {get; set;}
     public double Latitud {get; set;}
     public double Longitud {get; set;}
-    public string? Coordenadas(){
+    public string Coordenadas(){
         
             return $"{Latitud}, {Longitud}";
         
