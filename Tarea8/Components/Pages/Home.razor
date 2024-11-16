@@ -1,0 +1,136 @@
+﻿@page "/"
+@page "/mantenimiento"
+@rendermode InteractiveServer
+@inject DetenidosContext dbContext
+
+<PageTitle>Mantenimiento</PageTitle>
+
+<h1>Mantenimiento de Detención</h1>
+
+@if(modo == Modo.Lista)
+{
+    <h3>Listado de Detenciones</h3>
+    <div class="text-end">
+        <button class="btn btn-primary" @onclick="()=> CambiarModo(Modo.Editar)">Nueva</button>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Nombre</th>
+                <th>Coordenadas</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var detenido in detenidos)
+            {
+                <tr>
+                    <td>@detenido.FechaDetencion</td>
+                    <td>@detenido.Nombre @detenido.Apellido</td>
+                    <td>@detenido.Coordenadas</td>
+                    <td>
+                        <button class="btn btn-primary" @onclick="()=>Editar(detenido)">Editar</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}else if(modo == Modo.Editar){
+    <EditForm Model="@detenido" OnValidSubmit="GuardarDetencion">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="form-group">
+            <label for="FechaDetencion">Fecha de Detención</label>
+            <InputDate id="FechaDetencion" @bind-Value="@detenido.FechaDetencion" class="form-control" />
+            <ValidationMessage For="@(() => detenido.FechaDetencion)"/>
+        </div>
+        
+        <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <InputText id="nombre" @bind-Value="@detenido.Nombre" class="form-control" />
+            <ValidationMessage For="@(() => detenido.Nombre)"/>
+        </div>
+
+        <div class="form-group">
+            <label for="apellido">Apellido</label>
+            <InputText id="apellido" @bind-Value="@detenido.Apellido" class="form-control" />
+            <ValidationMessage For="@(() => detenido.Apellido)"/>
+        </div>
+        
+        <div class="form-group">
+            <label for="pasaporte">Pasaporte</label>
+            <InputText id="pasaporte" @bind-Value="@detenido.NumeroPasaporte" class="form-control" />
+            <ValidationMessage For="@(() => detenido.NumeroPasaporte)"/>
+        </div>
+
+        <!-- Fecha de Nacimiento-->
+        <div class="form-group">
+            <label for="nacimiento">Fecha de Nacimiento</label>
+            <InputDate id="nacimiento" @bind-Value="@detenido.FechaNacimiento" class="form-control" />
+            <ValidationMessage For="@(() => detenido.FechaNacimiento)"/>
+        </div>
+
+
+        <div class="form-group">
+            <label for="latitud">Latitud</label>
+            <InputNumber id="latitud" @bind-Value="@detenido.Latitud" class="form-control" />
+            <ValidationMessage For="@(() => detenido.Latitud)"/>
+        </div>
+
+        <div class="form-group">
+            <label for="longitud">Latitud</label>
+            <InputNumber id="longitud" @bind-Value="@detenido.Longitud" class="form-control" />
+            <ValidationMessage For="@(() => detenido.Longitud)"/>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Guardar</button>
+
+    </EditForm>
+}
+
+@code{
+
+    enum Modo{
+        Lista, 
+        Editar,
+    }
+    
+
+    Modo modo = Modo.Lista;
+
+    void CambiarModo(Modo nuevoModo)
+    {
+        modo = nuevoModo;
+        StateHasChanged(); // Esto forzará el re-renderizado del componente
+    }
+
+    List<Detenido> detenidos = new List<Detenido>();
+    
+    Detenido detenido = new Detenido();
+
+    void GuardarDetencion(){
+
+        if(detenido.Id > 0){
+
+            dbContext.Detenidos.Update(detenido);
+            dbContext.SaveChanges();
+
+            var index = detenidos.FindIndex(d => d.Id == detenido.Id);
+            detenidos[index] = detenido;
+
+        }else{
+            dbContext.Detenidos.Add(detenido);
+            dbContext.SaveChanges();
+            detenidos.Add(detenido);
+        }
+        modo = Modo.Lista;
+        StateHasChanged();  
+    }
+    void Editar(Detenido detenido){
+        this.detenido = detenido;
+        modo = Modo.Editar;
+    }
+
+}
