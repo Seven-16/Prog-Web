@@ -1,0 +1,62 @@
+﻿@page "/registro"
+@inject Servicio servicio
+@inject NavigationManager NavigationManager
+
+<h3>Crear Cuenta</h3>
+
+<EditForm Model="@nuevoUsuario" OnValidSubmit="CrearCuenta" @ref="editForm">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label for="usuario">Usuario:</label>
+        <InputText id="usuario" @bind-Value="nuevoUsuario.Usuario" class="form-control custom-input" />
+        <ValidationMessage For="@(() => nuevoUsuario.Usuario)"/>
+    </div>
+
+    <div class="form-group">
+        <label for="correo">Correo:</label>
+        <InputText id="correo" @bind-Value="nuevoUsuario.Correo" class="form-control custom-input" />
+        <ValidationMessage For="@(() => nuevoUsuario.Correo)"/>
+    </div>
+
+    <div class="form-group">
+        <label for="clave">Clave:</label>
+        <InputText id="clave" @bind-Value="nuevoUsuario.Clave" class="form-control custom-input" />
+        <ValidationMessage For="@(() => nuevoUsuario.Clave)"/>
+    </div>
+
+    @if (!string.IsNullOrEmpty(errorMessage))
+    {
+        <div class="alert alert-danger mt-3">
+            @errorMessage
+        </div>
+    }
+
+    <button type="submit" class="btn btn-primary">Ingresar</button>
+
+</EditForm>
+
+@code {
+    private Menol nuevoUsuario = new Menol();
+    private string errorMessage = string.Empty;
+    private EditForm editForm = new EditForm();
+
+    private void CrearCuenta()
+    {
+        errorMessage = string.Empty;
+        var usuarioExistente = servicio.ObtenerUsuario(nuevoUsuario.Usuario!, nuevoUsuario.Clave!);
+        if (usuarioExistente != null)
+        {
+            // Mostrar mensaje de error
+            errorMessage = "¡El usuario ya existe! Por favor, elige otro nombre de usuario.";
+            StateHasChanged();
+            return;
+        }
+        else
+        {
+            servicio.CrearUsuario(nuevoUsuario);
+            NavigationManager.NavigateTo("/login");
+        }
+    }
+}

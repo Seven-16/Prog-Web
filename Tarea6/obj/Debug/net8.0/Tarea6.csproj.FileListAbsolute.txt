@@ -1,0 +1,6 @@
+C:\Programación Web\Tarea6\obj\Debug\net8.0\Tarea6.GeneratedMSBuildEditorConfig.editorconfig
+C:\Programación Web\Tarea6\obj\Debug\net8.0\Tarea6.AssemblyInfoInputs.cache
+C:\Programación Web\Tarea6\obj\Debug\net8.0\Tarea6.AssemblyInfo.cs
+C:\Programación Web\Tarea6\obj\Debug\net8.0\Tarea6.csproj.CoreCompileInputs.cache
+C:\Programación Web\Tarea6\obj\Debug\net8.0\Tarea6.MvcApplicationPartsAssemblyInfo.cache
+C:\Programación Web\Tarea6\obj\Debug\net8.0\Tarea6.sourcelink.json

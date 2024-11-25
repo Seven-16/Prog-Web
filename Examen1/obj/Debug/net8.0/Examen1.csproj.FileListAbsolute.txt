@@ -28,3 +28,9 @@ C:\Programación Web\Examen1\obj\Debug\net8.0\refint\Examen1.dll
 C:\Programación Web\Examen1\obj\Debug\net8.0\Examen1.pdb
 C:\Programación Web\Examen1\obj\Debug\net8.0\Examen1.genruntimeconfig.cache
 C:\Programación Web\Examen1\obj\Debug\net8.0\ref\Examen1.dll
+C:\Programación Web\Examen1\bin\Debug\net8.0\selenium-manager\linux\selenium-manager
+C:\Programación Web\Examen1\bin\Debug\net8.0\selenium-manager\macos\selenium-manager
+C:\Programación Web\Examen1\bin\Debug\net8.0\selenium-manager\windows\selenium-manager.exe
+C:\Programación Web\Examen1\bin\Debug\net8.0\WebDriver.dll
+C:\Programación Web\Examen1\obj\Debug\net8.0\Examen1.csproj.AssemblyReference.cache
+C:\Programación Web\Examen1\obj\Debug\net8.0\Examen1.csproj.Up2Date

@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Tarea9.props" />
+</Project>

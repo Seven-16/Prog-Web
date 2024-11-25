@@ -1,4 +1,5 @@
 ﻿@page "/"
+@page "/Inicio"
 @inject NavigationManager NavigationManager
 @rendermode InteractiveServer
 @inject TardanzaServicio TardanzaServicio
@@ -33,7 +34,7 @@
     </tbody>
 </table>
 
-<button class="btn btn-primary" @onclick="NuevaTardanza">Insertar</button>
+<button id="botonInsertar" class="btn btn-primary" @onclick="NuevaTardanza">Insertar</button>
 
 @code
 {
